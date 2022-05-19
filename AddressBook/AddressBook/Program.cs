@@ -10,8 +10,30 @@ namespace AddressBook
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Address Book program");
-            Console.ReadLine();
+            AddressBook addressbook = new AddressBook();
+
+            bool userInput = true;
+
+            while (userInput)
+            {
+                Console.WriteLine("See to Address Book Contacts      ----- press 1");
+
+                Console.WriteLine("Edit existing Contact Address Book ---- press X\n");
+                Console.Write("######    Select any option above  #######   --:  ");
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "1":
+                        addressbook.contacts();
+                        break;
+                    case "X":
+                        userInput = false;
+                        break;
+                    case "x":
+                        userInput = false;
+                        break;
+                }
+            }
 
 
 
