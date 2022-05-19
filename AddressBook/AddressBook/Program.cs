@@ -18,6 +18,8 @@ namespace AddressBook
             {
                 Console.WriteLine("See to Address Book Contacts      ----- press 1");
                 Console.WriteLine("To Add Contact in Address Book    ----- press 2");
+                Console.WriteLine("To Edit Existing Contact          ----- press 3");
+
 
 
                 Console.WriteLine("Edit existing Contact Address Book ---- press X\n");
@@ -31,6 +33,12 @@ namespace AddressBook
                     case "2":
                         addressbook.AddContact();
                         break;
+                    case "3":
+                        Console.Write("Enter the fist name to fetch the record :  ");
+                        string first = Console.ReadLine();
+                        addressbook.Edit(first);
+                        break;
+                   
                     case "X":
                         userInput = false;
                         break;

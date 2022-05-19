@@ -43,7 +43,7 @@ namespace AddressBook
         {
             Console.WriteLine("\n###########  Add Contact in Address Book ##################\n");
             Console.Write("Enter First Name:  ");
-            con.First= Console.ReadLine();
+            con.First = Console.ReadLine();
             Console.Write("Enter Last Name:  ");
             con.Last = Console.ReadLine();
             Console.Write("Enter Address:  ");
@@ -63,7 +63,50 @@ namespace AddressBook
             Contacts();
         }
 
+       
 
 
+        //Edit Contact
+
+        public void Edit(string first)
+        {
+
+            var val = data.FirstOrDefault(x => x.First == first);
+            if (val != null)
+            {
+                foreach (Contact str in data)
+                {
+                    if (str.First == first)
+                    {
+                        Console.Write("Enter First Name:  ");
+                        str.First = Console.ReadLine();
+                        Console.Write("Enter Last Name:  ");
+                        str.Last = Console.ReadLine();
+                        Console.Write("Enter Address:  ");
+                        str.Address = Console.ReadLine();
+                        Console.Write("Enter City:  ");
+                        str.City = Console.ReadLine();
+                        Console.Write("Enter State:  ");
+                        str.State = Console.ReadLine();
+                        Console.Write("Enter ZipCode:  ");
+                        str.Zip = Console.ReadLine();
+                        Console.Write("Enter Phone Number:  ");
+                        str.phone = Console.ReadLine();
+
+                    }
+
+                }
+                Console.WriteLine("---------- After Editing -----------");
+
+                Contacts();
+            }
+            else
+            {
+                Console.WriteLine("\n !!  Enterd data does not match with existing Record !! \n");
+            }
+
+
+        }
     }
+
 }
