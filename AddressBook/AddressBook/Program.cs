@@ -16,14 +16,14 @@ namespace AddressBook
 
             while (userInput)
             {
-                Console.WriteLine("See to Address Book Contacts      ----- press 1");
-                Console.WriteLine("To Add Contact in Address Book    ----- press 2");
+                Console.WriteLine("To SEE Contacts in  AddressBook   ----- press 1");
+                Console.WriteLine("To ADD Contact in Address Book    ----- press 2");
                 Console.WriteLine("To Edit Existing Contact          ----- press 3");
+                Console.WriteLine("To DELETE Existing Contact        ----- press 4");
+                Console.WriteLine("To EXIT                           ----- press x");
 
 
-
-                Console.WriteLine("Edit existing Contact Address Book ---- press X\n");
-                Console.Write("######    Select any option above  #######   --:  ");
+                Console.Write("\n######    Select any option above  #######   --:  ");
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -38,7 +38,11 @@ namespace AddressBook
                         string first = Console.ReadLine();
                         addressbook.Edit(first);
                         break;
-                   
+                    case "4":
+                        Console.Write("Enter the fist name to fetch the record :  ");
+                        string del = Console.ReadLine();
+                        addressbook.Delete(del);
+                        break;
                     case "X":
                         userInput = false;
                         break;

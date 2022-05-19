@@ -107,6 +107,40 @@ namespace AddressBook
 
 
         }
+
+
+        //Delete Record
+
+        public void Delete(string del)
+        {
+            var val = data.FirstOrDefault(x => x.First == del);
+            if (val != null)
+            {
+                foreach (Contact str in data)
+                {
+                    if (str.First == del)
+                    {
+                        str.First = null;
+                        str.Last = null;
+                        str.Address = null;
+                        str.City = null;
+                        str.State = null;
+                        str.Zip = null;
+                        str.phone = null;
+
+                    }
+
+                }
+                Console.WriteLine("---------- After Editing -----------");
+
+                Contacts();
+            }
+            else
+            {
+                Console.WriteLine("\n !!  Enterd data does not match with existing Record !! \n");
+            }
+
+        }
     }
 
 }
