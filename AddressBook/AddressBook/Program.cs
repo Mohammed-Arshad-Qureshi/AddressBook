@@ -17,6 +17,8 @@ namespace AddressBook
             while (userInput)
             {
                 Console.WriteLine("See to Address Book Contacts      ----- press 1");
+                Console.WriteLine("To Add Contact in Address Book    ----- press 2");
+
 
                 Console.WriteLine("Edit existing Contact Address Book ---- press X\n");
                 Console.Write("######    Select any option above  #######   --:  ");
@@ -24,7 +26,10 @@ namespace AddressBook
                 switch (input)
                 {
                     case "1":
-                        addressbook.contacts();
+                        addressbook.Contacts();
+                        break;
+                    case "2":
+                        addressbook.AddContact();
                         break;
                     case "X":
                         userInput = false;

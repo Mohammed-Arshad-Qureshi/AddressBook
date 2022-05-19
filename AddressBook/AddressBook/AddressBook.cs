@@ -9,9 +9,7 @@ namespace AddressBook
     class AddressBook
     {
         Contact con = new Contact();
-        public void contacts()
-        {
-            List<Contact> data = new List<Contact>
+        List<Contact> data = new List<Contact>
             {
                 new Contact{First = "Arshad" , Last="Mahammed",Address="x-y-z colony",City="vizag",State="AP",Zip="635002",phone="5468898858"},
                 new Contact{First = "salman", Last="khan",Address="aadd/d colony",City="vishakapatnam",State="MP",Zip="879875",phone="8759658548"},
@@ -19,6 +17,8 @@ namespace AddressBook
                 new Contact{First = "krishna", Last="sri",Address="caadd/d colony",City="vzm",State="Assam",Zip="279875",phone="8559658548"}
 
             };
+        public void Contacts()
+        {
             Console.WriteLine("Contacts Present\n\n");
             foreach (Contact c in data)
             {
@@ -35,6 +35,34 @@ namespace AddressBook
                 Console.WriteLine("****************************\n");
             }
         }
+
+
+        //ADD contacts
+
+        public void AddContact()
+        {
+            Console.WriteLine("\n###########  Add Contact in Address Book ##################\n");
+            Console.Write("Enter First Name:  ");
+            con.First= Console.ReadLine();
+            Console.Write("Enter Last Name:  ");
+            con.Last = Console.ReadLine();
+            Console.Write("Enter Address:  ");
+            con.Address = Console.ReadLine();
+            Console.Write("Enter City:  ");
+            con.City = Console.ReadLine();
+            Console.Write("Enter State:  ");
+            con.State = Console.ReadLine();
+            Console.Write("Enter ZipCode:  ");
+            con.Zip = Console.ReadLine();
+            Console.Write("Enter Phone Number:  ");
+            con.phone = Console.ReadLine();
+
+            data.Add(con);
+
+            Console.WriteLine("------ After Adding Contact in Address Book ---------\n");
+            Contacts();
+        }
+
 
 
     }
