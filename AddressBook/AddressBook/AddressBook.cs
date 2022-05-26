@@ -8,21 +8,22 @@ namespace AddressBook
 {
     class AddressBook
     {
-        List<Contact> data = new List<Contact>
-            {
-                new Contact{First = "Arshad" , Last="Mahammed",Address="x-y-z colony",City="vizag",State="AP",Zip="635002",phone="5468898858"},
-                new Contact{First = "salman", Last="khan",Address="aadd/d colony",City="vishakapatnam",State="MP",Zip="879875",phone="8759658548"},
-                new Contact{First = "Ravi", Last="kumar",Address="badd/d colony",City="Rjy",State="MP",Zip="879875",phone="8759654548"},
-                new Contact{First = "krishna", Last="sri",Address="caadd/d colony",City="vzm",State="Assam",Zip="279875",phone="8559658548"}
 
-            };
+        Dictionary<string, Contact> data = new Dictionary<string, Contact>()
+         {
+             {"111", new Contact{First = "Arshad" , Last="Mahammed",Address="x-y-z colony",City="vizag",State="AP",Zip="635002",phone="5468898858"} },
+             {"122", new Contact{First = "salman", Last="khan",Address="aadd/d colony",City="vishakapatnam",State="MP",Zip="879875",phone="8759658548"} },
+             {"133", new Contact{First = "Ravi", Last="kumar",Address="badd/d colony",City="Rjy",State="MP",Zip="879875",phone="8759654548"} },
+             {"144", new Contact{First = "krishna", Last="sri",Address="caadd/d colony",City="vzm",State="Assam",Zip="279875",phone="8559658548"} }
+
+         };
 
 
         #region Display Contacts
         public void DisplayContacts()
         {
             Console.WriteLine("\n********  Contacts in Address Book  **********\n\n");
-            foreach (Contact details in data)
+            foreach (Contact details in data.Values)
             {
                 Console.WriteLine("     First Name    :  " + details.First);
                 Console.WriteLine("     Last Name     :  " + details.Last);
@@ -44,8 +45,9 @@ namespace AddressBook
         public void AddContact()
         {
             Console.WriteLine(" ********  Add Contact in Address Book  **********\n\n");
-
+            Console.Write("     Create Unique number to Address book    :  ");
             Contact con = new Contact();
+            string uniq = Console.ReadLine();
             Console.Write("     First Name    :  ");
             con.First = Console.ReadLine();
             Console.Write("     Last Name     :  ");
@@ -60,7 +62,7 @@ namespace AddressBook
             con.Zip = Console.ReadLine();
             Console.Write("     Phone Number  :  ");
             con.phone = Console.ReadLine();
-            data.Add(con);
+            data.Add(uniq,con);
             DisplayContacts();
 
         }
@@ -70,10 +72,10 @@ namespace AddressBook
         #region Edit Contact
         public void EditContact(string first)
         {
-            var val = data.FirstOrDefault(x => x.First == first);
-            if(val != null)
+            var val = data.FirstOrDefault(x => x.Value.First == first);
+            if (val.Value != null)
             {
-                foreach (Contact str in data)
+                foreach (Contact str in data.Values)
                 {
                     if (str.First == first)
                     {
@@ -109,10 +111,10 @@ namespace AddressBook
         #region Delete Contact
         public void DeleteContact(string del)
         {
-            var val = data.FirstOrDefault(x => x.First == del);
-            if (val != null)
+            var val = data.FirstOrDefault(x => x.Value.First == del);
+            if (val.Value!= null)
             {
-                data.Remove(val);
+                data.Remove(val.Key);
 
                 Console.WriteLine("\n******** After Deleting Contact in Address Book  **********\n\n");
                 DisplayContacts();
