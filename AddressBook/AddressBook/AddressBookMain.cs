@@ -13,6 +13,9 @@ namespace AddressBook
             AddressBook addressbook = new AddressBook();
             addressbook.DisplayContacts();
             addressbook.AddContact();
+            Console.Write("Enter first name to Edit Record :  ");
+            string first = Console.ReadLine();
+            addressbook.EditContact(first);
             Console.ReadLine();
 
         }

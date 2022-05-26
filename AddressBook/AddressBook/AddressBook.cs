@@ -58,7 +58,43 @@ namespace AddressBook
             data.Add(con);
             DisplayContacts();
 
+        }
 
+        public void EditContact(string first)
+        {
+            var val = data.FirstOrDefault(x => x.First == first);
+            if(val != null)
+            {
+                foreach (Contact str in data)
+                {
+                    if (str.First == first)
+                    {
+                        Console.WriteLine("\n\n ********  Edit Contact in Address Book  **********\n\n");
+                        Console.Write("     First Name    :  ");
+                        str.First = Console.ReadLine();
+                        Console.Write("     Last Name     :  ");
+                        str.Last = Console.ReadLine();
+                        Console.Write("     Address       :  ");
+                        str.Address = Console.ReadLine();
+                        Console.Write("     City          :  ");
+                        str.City = Console.ReadLine();
+                        Console.Write("     State         :  ");
+                        str.State = Console.ReadLine();
+                        Console.Write("     Zip           :  ");
+                        str.Zip = Console.ReadLine();
+                        Console.Write("     Phone Number  :  ");
+                        str.phone = Console.ReadLine();
+
+                    }
+
+                }
+                Console.WriteLine("\n******** After Editing Contact in Address Book  **********\n\n");
+                DisplayContacts();
+            }
+            else
+            {
+                Console.WriteLine("\n\n ! Entered Data  does not match with existing Contact");
+            }
         }
     }
 
