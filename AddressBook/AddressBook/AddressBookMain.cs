@@ -12,7 +12,9 @@ namespace AddressBook
         {
             AddressBook addressbook = new AddressBook();
             addressbook.DisplayContacts();
+            addressbook.AddContact();
             Console.ReadLine();
+
         }
     }
 }

@@ -19,7 +19,7 @@ namespace AddressBook
 
         public void DisplayContacts()
         {
-            Console.WriteLine(" ********  Contacts in Address Book  **********\n\n");
+            Console.WriteLine("\n********  Contacts in Address Book  **********\n\n");
             foreach (Contact details in data)
             {
                 Console.WriteLine("     First Name    :  " + details.First);
@@ -33,6 +33,31 @@ namespace AddressBook
 
             }
             Console.WriteLine(" ***********************************************\n\n");
+
+        }
+
+        public void AddContact()
+        {
+            Console.WriteLine(" ********  Add Contact in Address Book  **********\n\n");
+
+            Contact con = new Contact();
+            Console.Write("     First Name    :  ");
+            con.First = Console.ReadLine();
+            Console.Write("     Last Name     :  ");
+            con.Last = Console.ReadLine();
+            Console.Write("     Address       :  ");
+            con.Address = Console.ReadLine();
+            Console.Write("     City          :  ");
+            con.City = Console.ReadLine();
+            Console.Write("     State         :  ");
+            con.State = Console.ReadLine();
+            Console.Write("     Zip           :  ");
+            con.Zip = Console.ReadLine();
+            Console.Write("     Phone Number  :  ");
+            con.phone = Console.ReadLine();
+            data.Add(con);
+            DisplayContacts();
+
 
         }
     }
