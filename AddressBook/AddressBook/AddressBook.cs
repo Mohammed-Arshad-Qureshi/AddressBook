@@ -17,6 +17,8 @@ namespace AddressBook
 
             };
 
+
+        #region Display Contacts
         public void DisplayContacts()
         {
             Console.WriteLine("\n********  Contacts in Address Book  **********\n\n");
@@ -35,7 +37,10 @@ namespace AddressBook
             Console.WriteLine(" ***********************************************\n\n");
 
         }
+        #endregion
 
+
+        #region Add Contact
         public void AddContact()
         {
             Console.WriteLine(" ********  Add Contact in Address Book  **********\n\n");
@@ -59,7 +64,10 @@ namespace AddressBook
             DisplayContacts();
 
         }
+        #endregion
 
+
+        #region Edit Contact
         public void EditContact(string first)
         {
             var val = data.FirstOrDefault(x => x.First == first);
@@ -96,6 +104,26 @@ namespace AddressBook
                 Console.WriteLine("\n\n ! Entered Data  does not match with existing Contact");
             }
         }
+        #endregion
+
+        #region Delete Contact
+        public void DeleteContact(string del)
+        {
+            var val = data.FirstOrDefault(x => x.First == del);
+            if (val != null)
+            {
+                data.Remove(val);
+
+                Console.WriteLine("\n******** After Deleting Contact in Address Book  **********\n\n");
+                DisplayContacts();
+            }
+            else
+            {
+                Console.WriteLine("\n !!  Enterd data does not match with existing Record !! \n");
+            }
+        }
+
+        #endregion
     }
 
 }
