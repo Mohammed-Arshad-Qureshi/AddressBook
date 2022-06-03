@@ -159,21 +159,20 @@ namespace AddressBook
         #region Search Contact
         public void SearchContact(string del)
         {
-            bool flag = false;
-            //var dict = data.Select(x => x.Value.City == del).ToList();
+            int count = 0;
+            var dict = data.Select(x => x.Value.City == del).Count();
             foreach (var details in data)
             {
                 if (details.Value.City == del)
                 {
-                    Console.WriteLine("\n\n     First Name    :  " + details.Value.First);
-                    flag = true;
+                    count++;
                 }
 
             }
-            Console.WriteLine("\n\n");
 
-            if (flag == true)
+            if (count > 0)
             {
+                Console.WriteLine("\n #### The number of Contacts related to the city is : " + count + " #####\n\n");
                 return;
             }
             else
