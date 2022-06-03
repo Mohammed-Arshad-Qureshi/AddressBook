@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    class AddressBook 
+    class AddressBook
     {
 
         Dictionary<string, Contact> data = new Dictionary<string, Contact>()
@@ -24,8 +24,8 @@ namespace AddressBook
         public void DisplayContacts()
         {
             Console.WriteLine("\n********  Contacts in Address Book  **********\n\n");
-            
-            foreach (var details in data) 
+
+            foreach (var details in data)
             {
                 Console.WriteLine("     Unique ID     :  " + details.Key);
                 Console.WriteLine("     First Name    :  " + details.Value.First);
@@ -53,12 +53,12 @@ namespace AddressBook
             Contact con = new Contact();
             string uniq = Console.ReadLine();
             var value = data.FirstOrDefault(x => x.Key == uniq);
-            if(value.Key != uniq)
+            if (value.Key != uniq)
             {
                 Console.Write("     First Name    :  ");
                 con.First = Console.ReadLine();
                 var name = data.FirstOrDefault(x => x.Value.First == con.First);
-                if(name.Key == null)
+                if (name.Key == null)
                 {
                     Console.Write("     Last Name     :  ");
                     con.Last = Console.ReadLine();
@@ -74,15 +74,15 @@ namespace AddressBook
                     con.phone = Console.ReadLine();
                     data.Add(uniq, con);
                     DisplayContacts();
-                   
-                   
+
+
                 }
                 else
                 {
                     Console.WriteLine("\n\n######### Contact already Present with that name #########\n");
                     return;
                 }
-               
+
             }
             else
             {
@@ -90,7 +90,7 @@ namespace AddressBook
                 return;
             }
 
-           
+
 
         }
         #endregion
@@ -139,7 +139,7 @@ namespace AddressBook
         public void DeleteContact(string del)
         {
             var val = data.FirstOrDefault(x => x.Value.First == del);
-            if (val.Value!= null)
+            if (val.Value != null)
             {
                 data.Remove(val.Key);
 
@@ -161,23 +161,18 @@ namespace AddressBook
         {
             bool flag = false;
             //var dict = data.Select(x => x.Value.City == del).ToList();
-            foreach(var details in data)
+            foreach (var details in data)
             {
                 if (details.Value.City == del)
                 {
-                        Console.WriteLine("     Unique ID     :  " + details.Key);
-                        Console.WriteLine("     First Name    :  " + details.Value.First);
-                        Console.WriteLine("     Last Name     :  " + details.Value.Last);
-                        Console.WriteLine("     Address       :  " + details.Value.Address);
-                        Console.WriteLine("     City          :  " + details.Value.City);
-                        Console.WriteLine("     State         :  " + details.Value.State);
-                        Console.WriteLine("     Zip           :  " + details.Value.Zip);
-                        Console.WriteLine("     Phone Number  :  " + details.Value.phone);
-                        Console.WriteLine("\n\n");
+                    Console.WriteLine("\n\n     First Name    :  " + details.Value.First);
                     flag = true;
                 }
+
             }
-            if(flag == true)
+            Console.WriteLine("\n\n");
+
+            if (flag == true)
             {
                 return;
             }
