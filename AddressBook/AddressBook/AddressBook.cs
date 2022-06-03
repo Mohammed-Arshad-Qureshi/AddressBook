@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    class AddressBook
+    class AddressBook 
     {
 
         Dictionary<string, Contact> data = new Dictionary<string, Contact>()
@@ -19,19 +19,22 @@ namespace AddressBook
          };
 
 
+
         #region Display Contacts
         public void DisplayContacts()
         {
             Console.WriteLine("\n********  Contacts in Address Book  **********\n\n");
-            foreach (Contact details in data.Values)
+            
+            foreach (var details in data) 
             {
-                Console.WriteLine("     First Name    :  " + details.First);
-                Console.WriteLine("     Last Name     :  " + details.Last);
-                Console.WriteLine("     Address       :  " + details.Address);
-                Console.WriteLine("     City          :  " + details.City);
-                Console.WriteLine("     State         :  " + details.State);
-                Console.WriteLine("     Zip           :  " + details.Zip);
-                Console.WriteLine("     Phone Number  :  " + details.phone);
+                Console.WriteLine("     Unique ID     :  " + details.Key);
+                Console.WriteLine("     First Name    :  " + details.Value.First);
+                Console.WriteLine("     Last Name     :  " + details.Value.Last);
+                Console.WriteLine("     Address       :  " + details.Value.Address);
+                Console.WriteLine("     City          :  " + details.Value.City);
+                Console.WriteLine("     State         :  " + details.Value.State);
+                Console.WriteLine("     Zip           :  " + details.Value.Zip);
+                Console.WriteLine("     Phone Number  :  " + details.Value.phone);
                 Console.WriteLine("\n\n");
 
             }
@@ -44,26 +47,50 @@ namespace AddressBook
         #region Add Contact
         public void AddContact()
         {
+            List<string> Keys = new List<string>(data.Keys);
             Console.WriteLine(" ********  Add Contact in Address Book  **********\n\n");
             Console.Write("     Create Unique number to Address book    :  ");
             Contact con = new Contact();
             string uniq = Console.ReadLine();
-            Console.Write("     First Name    :  ");
-            con.First = Console.ReadLine();
-            Console.Write("     Last Name     :  ");
-            con.Last = Console.ReadLine();
-            Console.Write("     Address       :  ");
-            con.Address = Console.ReadLine();
-            Console.Write("     City          :  ");
-            con.City = Console.ReadLine();
-            Console.Write("     State         :  ");
-            con.State = Console.ReadLine();
-            Console.Write("     Zip           :  ");
-            con.Zip = Console.ReadLine();
-            Console.Write("     Phone Number  :  ");
-            con.phone = Console.ReadLine();
-            data.Add(uniq,con);
-            DisplayContacts();
+            var value = data.FirstOrDefault(x => x.Key == uniq);
+            if(value.Key != uniq)
+            {
+                Console.Write("     First Name    :  ");
+                con.First = Console.ReadLine();
+                var name = data.FirstOrDefault(x => x.Value.First == con.First);
+                if(name.Key == null)
+                {
+                    Console.Write("     Last Name     :  ");
+                    con.Last = Console.ReadLine();
+                    Console.Write("     Address       :  ");
+                    con.Address = Console.ReadLine();
+                    Console.Write("     City          :  ");
+                    con.City = Console.ReadLine();
+                    Console.Write("     State         :  ");
+                    con.State = Console.ReadLine();
+                    Console.Write("     Zip           :  ");
+                    con.Zip = Console.ReadLine();
+                    Console.Write("     Phone Number  :  ");
+                    con.phone = Console.ReadLine();
+                    data.Add(uniq, con);
+                    DisplayContacts();
+                   
+                   
+                }
+                else
+                {
+                    Console.WriteLine("\n\n######### Contact already Present with that name #########\n");
+                    return;
+                }
+               
+            }
+            else
+            {
+                Console.WriteLine("\n\n ############ ID already present it must be unique ##########\n\n");
+                return;
+            }
+
+           
 
         }
         #endregion
