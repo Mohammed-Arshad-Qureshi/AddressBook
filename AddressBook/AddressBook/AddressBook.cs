@@ -160,16 +160,18 @@ namespace AddressBook
         public void SearchContact(string del)
         {
             int count = 0;
-            var dict = data.Select(x => x.Value.City == del).Count();
-            foreach (var details in data)
+            List<Contact> dict = data.Values.ToList();
+
+            var dictt = dict.Where(x => x.City == del);
+            foreach(var details in dictt)
             {
-                if (details.Value.City == del)
+                if (details.City == del)
                 {
                     count++;
                 }
 
             }
-
+           
             if (count > 0)
             {
                 Console.WriteLine("\n #### The number of Contacts related to the city is : " + count + " #####\n\n");
@@ -180,6 +182,8 @@ namespace AddressBook
                 Console.WriteLine("\n !!  Enterd data does not match with existing Record !! \n");
             }
         }
+
+        
 
         #endregion
     }
