@@ -190,7 +190,21 @@ namespace AddressBook
         {
             addressBooks.Add("111",addressBook);
 
-            foreach (var details in addressBook.OrderBy(x => x.First))
+            //Console.WriteLine("After soring by Name");
+            //foreach (var details in addressBook.OrderBy(x => x.Name))
+            //{
+            //    Console.WriteLine("     First Name    :  " + details.First);
+            //    Console.WriteLine("     Last Name     :  " + details.Last);
+            //    Console.WriteLine("     Address       :  " + details.Address);
+            //    Console.WriteLine("     City          :  " + details.City);
+            //    Console.WriteLine("     State         :  " + details.State);
+            //    Console.WriteLine("     Zip           :  " + details.Zip);
+            //    Console.WriteLine("     Phone Number  :  " + details.phone);
+            //    Console.WriteLine("\n\n");
+            //}
+
+            Console.WriteLine("After soring by City");
+            foreach (var details in addressBook.OrderBy(x => x.City))
             {
                 Console.WriteLine("     First Name    :  " + details.First);
                 Console.WriteLine("     Last Name     :  " + details.Last);
