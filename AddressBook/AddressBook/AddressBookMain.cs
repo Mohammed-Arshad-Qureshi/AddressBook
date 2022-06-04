@@ -21,6 +21,8 @@ namespace AddressBook
                 Console.WriteLine("To Edit Existing Contact          ----- press 3");
                 Console.WriteLine("To DELETE Existing Contact        ----- press 4");
                 Console.WriteLine("To Search Existing Contact        ----- press 5");
+                Console.WriteLine("To sort by First Name             ----- press 6");
+
 
                 Console.WriteLine("To EXIT                           ----- press x");
 
@@ -49,6 +51,10 @@ namespace AddressBook
                         Console.Write("Enter the City name to fetch the record :  ");
                         string cityData = Console.ReadLine();
                         addressbook.SearchContact(cityData);
+                        break;
+                    case "6":
+                        Console.WriteLine("#### Sort Contacts by FirstName ####\n");
+                        addressbook.Sorting();
                         break;
                     case "X":
                         userInput = false;
