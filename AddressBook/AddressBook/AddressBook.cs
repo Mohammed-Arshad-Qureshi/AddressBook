@@ -228,14 +228,8 @@ namespace AddressBook
                 {
                    foreach(var details in addressBook)
                     {
-                        sw.WriteLine("     First Name    :  " + details.First);
-                        sw.WriteLine("     Last Name     :  " + details.Last);
-                        sw.WriteLine("     Address       :  " + details.Address);
-                        sw.WriteLine("     City          :  " + details.City);
-                        sw.WriteLine("     State         :  " + details.State);
-                        sw.WriteLine("     Zip           :  " + details.Zip);
-                        sw.WriteLine("     Phone Number  :  " + details.phone);
-                        sw.WriteLine("\n\n");
+                        sw.WriteLine( details.First + "," + details.Last + "+" + details.Address + "+" + details.City + "," + details.State + "," + details.Zip + "," + details.phone);
+                        sw.WriteLine("\n");
                     }
 
                 }
@@ -256,17 +250,7 @@ namespace AddressBook
             lines = File.ReadAllText(path);
             Console.WriteLine(lines);
             Console.ReadKey();
-            
-            //using(StreamReader sr = new StreamReader(path))
-            //{
-            //    string str = string.Empty;
-
-            //    while ((str == sr.ReadLine()) != null)
-            //    {
-            //        Console.WriteLine(str);
-            //    }
-            //}
-            //Console.ReadKey();
+           
 
         }
 

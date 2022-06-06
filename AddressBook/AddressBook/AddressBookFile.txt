@@ -1,40 +1,12 @@
-     First Name    :  salman
-     Last Name     :  khan
-     Address       :  aadd/d colony
-     City          :  vizag
-     State         :  MP
-     Zip           :  879875
-     Phone Number  :  8759658548
+salman,khan+aadd/d colony+vizag,MP,879875,8759658548
 
 
-
-     First Name    :  Ravi
-     Last Name     :  kumar
-     Address       :  badd/d colony
-     City          :  Rjy
-     State         :  MP
-     Zip           :  879875
-     Phone Number  :  8759654548
+Ravi,kumar+badd/d colony+Rjy,MP,879875,8759654548
 
 
-
-     First Name    :  krishna
-     Last Name     :  sri
-     Address       :  caadd/d colony
-     City          :  vzm
-     State         :  Assam
-     Zip           :  279875
-     Phone Number  :  8559658548
+krishna,sri+caadd/d colony+vzm,Assam,279875,8559658548
 
 
-
-     First Name    :  Arshad
-     Last Name     :  Mahammed
-     Address       :  x-y-z colony
-     City          :  vizag
-     State         :  AP
-     Zip           :  635002
-     Phone Number  :  5468898858
-
+Arshad,Mahammed+x-y-z colony+vizag,AP,635002,5468898858
 
 
