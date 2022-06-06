@@ -5,3 +5,6 @@ E:\Visual_Studio\AddressBook\AddressBook\AddressBook\obj\Debug\AddressBook.cspro
 E:\Visual_Studio\AddressBook\AddressBook\AddressBook\obj\Debug\AddressBook.csproj.CoreCompileInputs.cache
 E:\Visual_Studio\AddressBook\AddressBook\AddressBook\obj\Debug\AddressBook.exe
 E:\Visual_Studio\AddressBook\AddressBook\AddressBook\obj\Debug\AddressBook.pdb
+E:\Visual_Studio\AddressBook\AddressBook\AddressBook\bin\Debug\Newtonsoft.Json.dll
+E:\Visual_Studio\AddressBook\AddressBook\AddressBook\bin\Debug\Newtonsoft.Json.xml
+E:\Visual_Studio\AddressBook\AddressBook\AddressBook\obj\Debug\AddressBook.csproj.CopyComplete

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -228,8 +229,11 @@ namespace AddressBook
                 {
                    foreach(var details in addressBook)
                     {
-                        sw.WriteLine( details.First + "," + details.Last + "+" + details.Address + "+" + details.City + "," + details.State + "," + details.Zip + "," + details.phone);
-                        sw.WriteLine("\n");
+                        string StrResultJson = JsonConvert.SerializeObject(details);
+
+                        sw.WriteLine(StrResultJson);
+
+                        sw.WriteLine("\n\n");
                     }
 
                 }
@@ -250,7 +254,17 @@ namespace AddressBook
             lines = File.ReadAllText(path);
             Console.WriteLine(lines);
             Console.ReadKey();
-           
+            
+            //using(StreamReader sr = new StreamReader(path))
+            //{
+            //    string str = string.Empty;
+
+            //    while ((str == sr.ReadLine()) != null)
+            //    {
+            //        Console.WriteLine(str);
+            //    }
+            //}
+            //Console.ReadKey();
 
         }
 
